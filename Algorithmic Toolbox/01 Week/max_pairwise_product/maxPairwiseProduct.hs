@@ -1,3 +1,5 @@
+module MaxPairwiseProduct where
+
 import Control.Applicative ((<$>))
 
 getEm :: (Ord a) => (a, a) -> a -> (a, a)
@@ -12,9 +14,3 @@ getEm (x, y) a
 maxPairwiseProduct :: (Num a, Ord a) => [a] -> a
 maxPairwiseProduct nums = fst res * snd res
   where res = foldl getEm (0, 1) nums
-
-main = do
-  length <- getLine
-  rawNums <- words <$> getLine
-  let nums = read <$> rawNums :: [Int]
-  putStrLn $ show $ maxPairwiseProduct nums
